@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="./themes/prism.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+<link rel="stylesheet" href="./style.css">
+    <script src="./js.js"></script>
+</head>
+<body>
+    <script src="./themes/prism.js"></script>
+    <div class="wrapper">
+       <div class="section">
+    <div class="top_navbar">
+      <div class="hamburger">
+        <a href="#">
+          <i class="fas fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    <div class="container">
+        <center><h1 id='data-content-title'>Youtube Ad Skipper</h1></center><br><hr><br><br>
+        <div id="data-content" >
+            <pre>
+                <code class="language-javascript">// ==UserScript==
+                // @name         New Userscript
+                // @namespace    http://tampermonkey.net/
+                // @version      0.1
+                // @description  try to take over the world!
+                // @author       You
+                // @match        https://www.youtube.com/
+                // @match        https://www.youtube.com
+                // @match        https://www.youtube.com/watch
+                // @match        https://www.youtube.com/watch?v=
+                // @icon         https://www.google.com/s2/favicons?sz=64&amp;domain=youtube.com
+                // @grant        none
+                // ==/UserScript==
+                
+                
+                (function() {
+                    'use strict';
+                    console.log('Starting....');
+                    check_ad();
+                })();
+                
+                
+                function check_ad(){
+                    console.log("checking for ads....");
+                    var initWatcher = setInterval(function () {
+                     var skipid= document.getElementsByClassName('ytp-ad-skip-button')[0]; //document.getElementById('ad-text:3');
+                     if(skipid){
+                            console.log("Skipid found")
+                            clearInterval(initWatcher);
+                             console.log("Going to inside skip function");
+                         ytp_skip();
+                        }
+                        /* else{
+                              console.log("Finding skip id ...");
+                         }*/
+                }, 200);
+                
+                }
+                
+                function ytp_skip() {
+                    console.log("I'm inside");
+                    var timer = setInterval(function(){
+                        var skipid= document.getElementById('ad-text:3');
+                        if(skipid){
+                            var button= document.getElementsByClassName('ytp-ad-skip-button')[0].click();
+                        }
+                        else{
+                
+                            console.log("Closing........");
+                            clearInterval(timer);
+                            check_ad();
+                        }
+                    },100);
+                }</code></pre>
+        </div>
+    </div>
+  </div>
+        <div class="sidebar">
+            <div class="profile">
+                <img src="https://avatars.githubusercontent.com/u/69341705?v=4" alt="profile_picture">
+                <h3>Yash Shukla</h3>
+                <p>Developer</p>
+            </div>
+            <ul>
+                <li id="home">
+                    <a href="#" class="active">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">Home</span>
+                    </a>
+                </li>
+                <div id="sideitem">
+                <li >
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">My Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">People</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="item">Perfomance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <span class="item">Development</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-shield"></i></span>
+                        <span class="item">Admin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="item">Settings</span>
+                    </a>
+                </li>
+                </div>
+            </ul>
+        </div>
+        
+    </div>
+ 
+</body>
+</html>
