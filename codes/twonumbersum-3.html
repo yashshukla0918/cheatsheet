@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="two number sum">
+    <meta name="description" content="array">
+    <meta name="description" content="competitve programming ">
+    <meta name="description" content="in hindi">
+    <meta name="description" content="optimal solution">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="../themes/prism.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify-css.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify-html.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify-html.min.js"></script>
+
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify.js"></script>
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify-css.js"></script>
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify-html.js"></script>
+</head>
+
+<body>
+    <script src="../themes/prism.js"></script>
+    <pre >
+        <code class="language-cpp" >
+    #include&#60; iostream&#62;
+    #include&#60;bits/stdc++.h&#62;
+    using namespace std;
+
+
+    int main ()
+    {
+    
+        
+        int arr[] = { 3, 5, -1, 8, 11, 1, -1, 6 };
+        int target = 13;
+        int size = 8;
+        int sum = 0;
+        int L = 0, R = size - 1;
+    
+        //Sorting array
+        sort(arr,arr + size);
+        
+        while( (arr[L] + arr[R] )!= target && L &#60; size && R &#62; -1 ){
+
+            if( (arr[L] + arr[R] ) &#60; target ){
+                R --;
+            }
+            else{
+                L++;
+            }
+        cout&#60;&#60; arr[L] &#60;&#60; " , " &#60;&#60; arr[R] &#60;&#60;endl;
+        return 0;
+    }
+     </code></pre>
+
+</body>
+
+</html>
