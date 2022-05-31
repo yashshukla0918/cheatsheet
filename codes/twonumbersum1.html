@@ -1,12 +1,8 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta name="description" content="two number sum">
-    <meta name="description" content="array">
-    <meta name="description" content="competitve programming ">
-    <meta name="description" content="in hindi">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link href="../themes/prism.css" rel="stylesheet" />
     <meta charset="UTF-8">
@@ -23,61 +19,213 @@
     <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify.js"></script>
     <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify-css.js"></script>
     <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify-html.js"></script>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        /* Set height of body and the document to 100% */
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Style tab links */
+        .tablink {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+        }
+
+        .tablink:hover {
+            background-color: #777;
+        }
+
+
+        .tabcontent {
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
     <script src="../themes/prism.js"></script>
-    <pre >
-        <code class="language-cpp" >
-#include &#9001; iostream&#9002;
-#include &#9001;bits/stdc++.h&#9002;
+    <button class="tablink" onclick="openPage('C', this, 'red')">C</button>
+    <button class="tablink" onclick="openPage('C++', this, 'green')" id="defaultOpen">C++</button>
+    <button class="tablink" onclick="openPage('Python', this, 'blue')">Python</button>
+    <button class="tablink" onclick="openPage('JAVA', this, 'orange')">JAVA</button>
 
-using namespace std;
-int * getPair (int arr[], int size, int target)
-{
-
-    static int ans[2];
-    for (int i = 0; i < size; i++)
+    <div id="C" class="tabcontent">
+        <pre>
+      <code class="language-c">
+    #include&#60;stdio.h&#62;
+    int * getPair (int arr[], int size, int target)
     {
-
-        for (int j = 0; j < size; j++)
-    {
-
-        if (target == (arr[i] + arr[j]))
+        static int ans[2];
+        for (int i = 0; i < size; i++)
         {
-
-            ans[0] = arr[i];
-            ans[1] = arr[j];
-
-            return ans;
+            for (int j = 0; j < size; j++)
+        {
+            if (target == (arr[i] + arr[j]))
+            {
+                ans[0] = arr[i];
+                ans[1] = arr[j];
+                return ans;
+            }
+        }
         }
     }
-    }
-}
-
-
-
-int main ()
-{
-
-    int arr[] = { 3, 5, -1, 8, 11, 1, -1, 6 };
-    int target = 13;
-    int size = 8;
-    int *p;
-
-    p = getPair (arr, size, target);
-
-    for (int i = 0; i < 2; i++)
+    
+    int main ()
     {
-
-        cout << *(p + i) << " ";
-
+        int arr[] = { 3, 5, -1, 8, 11, 1, -1, 6 };
+        int target = 13;
+        int size = 8;
+        int *p;
+        p = getPair (arr, size, target);
+    
+        for (int i = 0; i < 2; i++)
+        {
+            printf("%d ", *(p + i));
+        }
+        return 0;
     }
-    cout << endl;
+    
+      </code>
+  </pre>
+  <h3>OUTPUT : 5 8 </h3>
+    </div>
 
-    return 0;
-}
-                </code></pre>
+    <div id="C++" class="tabcontent">
+        <pre>
+      <code class="language-cpp">
+        #include&#60;iostream&#62;
+        #include&#60;bits/stdc++.h&#62;
+        using namespace std;
+
+        int * getPair (int arr[], int size, int target)
+        {
+            static int ans[2];
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (target == (arr[i] + arr[j]))
+                    {
+                        ans[0] = arr[i];
+                        ans[1] = arr[j];
+                        return ans;
+                    }
+                }
+            }
+        }
+        
+        int main (){
+            int arr[] = { 3, 5, -1, 8, 11, 1, -1, 6 };
+            int target = 13;
+            int size = 8;
+            int *p;
+            p = getPair (arr, size, target);
+        
+            for (int i = 0; i < 2; i++)
+            {
+                cout << *(p + i) << " ";
+            }
+            cout << endl;
+            return 0;
+        }
+      </code>
+  </pre>
+  <h3>OUTPUT : 5  8 </h3>
+    </div>
+
+    <div id="Python" class="tabcontent">
+        <pre>
+        <code class="language-python">
+    def getPair(arr,target):
+        for i in arr:
+            for j in arr:
+                if(i+j == target):
+                    return (i,j)
+        return False
+    
+    if __name__ == "__main__":
+        arr= [ 3, 5, -1, 8, 11, 1, -1, 6 ]
+        target = 13
+        result =getPair(arr,target)
+        if(result):
+            print(result[0],",",result[1])
+        else:
+            print("No found")
+        
+        </code>
+    </pre>
+        <h3>OUTPUT : 5,8 </h3>
+    </div>
+
+    <div id="JAVA" class="tabcontent">
+        <pre>
+      <code class="language-java">
+    public class Main
+    {
+        public static int[] getPair(int arr[],int target, int size){
+            for (int i=0;i &#60; size;i++){
+                for (int j=0;j&#60; size;j++){
+                    if((arr[i]+arr[j]) == target){
+                        int[] ans = new int[]{ arr[i],arr[j] };
+                        return ans;
+                    }
+                }
+            }
+            return new int[]{-Integer.MAX_VALUE,-Integer.MAX_VALUE};
+        }
+        public static void main(String[] args) {
+            int[] arr = new int[]{ 3, 5, -1, 8, 11, 1, -1, 6};
+            int target = 13;
+            int size = arr.length;
+            
+            int[] result = getPair(arr,target,size);
+            if(result[0]!= -Integer.MAX_VALUE){
+                System.out.print(result[0]+" , "+result[1]);
+            }
+            else{
+                System.out.println("Not Found");
+            }
+        }
+    }
+        
+      </code>
+  </pre>
+  <h3>OUTPUT : 5 , 8 </h3>
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 
 </body>
 
