@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta name="description" content="two number sum">
-    <meta name="description" content="array">
-    <meta name="description" content="competitve programming ">
-    <meta name="description" content="in hindi">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link href="../themes/prism.css" rel="stylesheet" />
     <meta charset="UTF-8">
@@ -22,43 +19,259 @@
     <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify.js"></script>
     <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify-css.js"></script>
     <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify-html.js"></script>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        /* Set height of body and the document to 100% */
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Style tab links */
+        .tablink-main {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 28px;
+            width: 50%;
+        }
+        .tablink-nested {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+        }
+        .tablink-main:hover {
+            background-color: #777;
+        }
+
+        .tablink-nested:hover {
+            background-color: #777;
+        }
+
+        .tabcontent-main   {
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+        }
+        .tabcontent-nested-1{
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+        }
+        .tab-cont{
+           
+            display: none;
+            padding: 30px 20px;
+            height: 100%;
+        }
+
+    </style>
 </head>
 
 <body>
     <script src="../themes/prism.js"></script>
-    <pre >
-        <code class="language-cpp" >
-    #include&#60; iostream&#62;
-    #include&#60;bits/stdc++.h&#62;
-    using namespace std;
+    <button class="tablink-main" onclick="openPage('1', this, 'rgb(255, 78, 78)',1)" id="defaultOpen1">Using <b>HASH MAP - O(n)</b></button>
+    <button class="tablink-main" onclick="openPage('2', this, 'green',2)" >Using <b>Simple Formula - O(nlogn)</b></button>
+    <!-- <button class="tablink" onclick="openPage('Python', this, 'blue')">Python</button>
+    <button class="tablink" onclick="openPage('JAVA', this, 'orange')">JAVA</button> -->
+    <button class="tablink-nested" id="C-1-1" onclick="openNestedPage('C', this, 'red',this.id)">C</button>
+    <button class="tablink-nested" id="C++-1-1" onclick="openNestedPage('C++', this, 'green',this.id)" >C++</button>
+    <button class="tablink-nested" id="Python-1-1" onclick="openNestedPage('Python', this, 'blue',this.id)">Python</button>
+    <button class="tablink-nested" id="JAVA-1-1" onclick="openNestedPage('JAVA', this, 'orange',this.id)">JAVA</button>
 
 
-    int main ()
-    {
-    
-        unordered_map&#60;int , bool&#62; array_table;
-        int X[] = { 3, 5, -1, 8, 11, 1, -1, 6 };
-        int target = 13;
-        int size = 8;
-        int Y = 0;
-    
-        for(int i=0; i&#60;size; i++){
-            Y = target - X[i];
-    
-            if( array_table[Y] ){
+
+    <div id="1" class="tabcontent-main">
         
-            cout&#60;&#60; Y &#60;&#60; " , " &#60;&#60; X[i] &#60;&#60;endl;
-    
+        <div id="C-1" class="tabcontent-nested-C-1 tab-cont">
+            00000000000000000
+        </div>
+        <div id="C++-1" class="tabcontent-nested-C++-1 tab-cont">
+            <pre >
+                <code class="language-cpp" >
+            #include&#60; iostream&#62;
+            #include&#60;bits/stdc++.h&#62;
+            using namespace std;
+        
+        
+            int main ()
+            {
+            
+                unordered_map&#60;int , bool&#62; array_table;
+                int X[] = { 3, 5, -1, 8, 11, 1, -1, 6 };
+                int target = 13;
+                int size = 8;
+                int Y = 0;
+            
+                for(int i=0; i&#60;size; i++){
+                    Y = target - X[i];
+            
+                    if( array_table[Y] ){
+                
+                    cout&#60;&#60; Y &#60;&#60; " , " &#60;&#60; X[i] &#60;&#60;endl;
+            
+                    }
+                    else{
+            
+                        array_table[ X[i] ] = true;
+            
+                    }
+                }
+                return 0;
+            }
+             </code></pre>
+        </div>
+        <div id="Python-1" class="tabcontent-nested-Python-1 tab-cont">
+            222222222222222222222222
+        </div>
+        <div id="JAVA-1" class="tabcontent-nested-JAVA-1 tab-cont">
+            333333333333333333333333
+        </div>
+    </div>
+
+    <div id="2" class="tabcontent-main">
+        <div id="C-2" class="tabcontent-nested-C-2 tab-cont">
+            hhjjhgjhg
+        </div>
+        <div id="C++-2" class="tabcontent-nested-C++-2 tab-cont">
+            <pre >
+                <code class="language-cpp" >
+            #include&#60; iostream&#62;
+            #include&#60;bits/stdc++.h&#62;
+            using namespace std;
+        
+        
+            int main ()
+            {
+            
+                
+                int arr[] = { 3, 5, -1, 8, 11, 1, -1, 6 };
+                int target = 13;
+                int size = 8;
+                int sum = 0;
+                int L = 0, R = size - 1;
+            
+                //Sorting array
+                sort(arr,arr + size);
+                
+                while( (arr[L] + arr[R] )!= target && L &#60; size && R &#62; -1 ){
+        
+                    if( (arr[L] + arr[R] ) &#60; target ){
+                        R --;
+                    }
+                    else{
+                        L++;
+                    }
+                cout&#60;&#60; arr[L] &#60;&#60; " , " &#60;&#60; arr[R] &#60;&#60;endl;
+                return 0;
+            }
+             </code></pre>
+        </div>
+        <div id="Python-2" class="tabcontent-nested-Python-2 tab-cont">
+            yuykyukyuky
+        </div>
+        <div id="JAVA-2" class="tabcontent-nested-JAVA-2 tab-cont" >
+            ssdsdsdfsfdsf
+        </div>
+    </div>
+
+
+    <script>
+        function openNestedPage(pageName, elmnt, color, pageid) {
+           
+            
+
+
+           pageid=pageid.split('').reverse().join('');
+           pageid =  pageid.slice(2,pageid.length);
+           pageid=pageid.split('').reverse().join('');
+
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-cont");
+            for (i = 0; i < tabcontent.length; i++) {
+                
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink-nested");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageid).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+
+        var pg=1;
+        function openPage(pageName1, elmnt, color, val) {
+           
+            if(val==1 && pg==1){val=1;pg=1;}
+            if(val==2 && pg==2){val=2;pg=2;}
+
+            if(val==2 && pg==1){
+                document.getElementById("C-"+pg+"-1").id="C-"+val+"-1";
+                document.getElementById("C++-"+pg+"-1").id="C++-"+val+"-1";
+                document.getElementById("Python-"+pg+"-1").id="Python-"+val+"-1";
+                document.getElementById("JAVA-"+pg+"-1").id="JAVA-"+val+"-1";
+                var pgid="C-"+val+"-1";
+                pg=2;
+            }
+            else if(val==1 && pg==2){
+                document.getElementById("C-"+pg+"-1").id="C-"+val+"-1";
+                document.getElementById("C++-"+pg+"-1").id="C++-"+val+"-1";
+                document.getElementById("Python-"+pg+"-1").id="Python-"+val+"-1";
+                document.getElementById("JAVA-"+pg+"-1").id="JAVA-"+val+"-1";
+                pgid="C-"+val+"-1";
+                pg=1;
             }
             else{
-    
-                array_table[ X[i] ] = true;
-    
+
             }
+
+             
+            
+
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent-main");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink-main");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName1).style.display = "block";
+            elmnt.style.backgroundColor = color;
+            if(document.getElementById(pgid)){
+                document.getElementById(pgid).click();
+            }
+            
         }
-        return 0;
-    }
-     </code></pre>
+
+        document.getElementById("C-1-1").click();
+       document.getElementById("defaultOpen1").click();
+
+
+
+
+
+
+       
+        
+    </script>
 
 </body>
 
